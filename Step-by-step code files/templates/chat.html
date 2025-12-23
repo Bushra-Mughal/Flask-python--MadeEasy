@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+</head>
+<body>
+
+    <h1>Chatbot Powered by Flask API</h1>
+
+    <input id="userInput" type="text" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send</button>
+
+    <h2>Response:</h2>
+    <p id="responseBox"></p>
+
+    <script>
+        async function sendMessage() {
+            const msg = document.getElementById("userInput").value;
+
+            const response = await fetch("/api/reply", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: msg })
+            });
+
+            const data = await response.json();
+            document.getElementById("responseBox").innerText = data.reply;
+        }
+    </script>
+
+</body>
+</html>

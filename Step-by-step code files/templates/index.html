@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page user input</title>
+</head>
+<body>
+    <h1>Welcome to My Flask Website</h1>
+    <p>This is my real HTML home page.</p>
+    <h1>Send Data to Python</h1>
+
+    <form method="POST">
+        <label>Enter your message:</label><br><br>
+        <input type="text" name="user_message" placeholder="Type something...">
+        <br><br>
+        <button type="submit">Send</button>
+    </form>
+
+    {% if message %}
+        <h2>You entered:</h2>
+        <p>{{ message }}</p>
+    {% endif %}
+
+    <a href="/about">Go to About</a><br>
+    <a href="/profile">Go to Profile</a>
+
+</body>
+</html>
